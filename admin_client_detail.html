@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クライアント詳細</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/admin_style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 共通ヘッダー -->
+    <div id="header-container"></div>
+
+    <div class="container mt-4">
+        <h2>企業A - 詳細情報</h2>
+
+        <!-- 企業情報セクション -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">企業情報</h4>
+                <p>企業名: 企業A</p>
+                <p>住所: 東京都...</p>
+                <p>電話番号: 03-xxxx-xxxx</p>
+                <button class="btn btn-secondary">編集</button>
+            </div>
+        </div>
+
+        <!-- 担当者情報セクション -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">担当者情報</h4>
+                <p>氏名: 担当者A</p>
+                <p>メールアドレス: example@example.com</p>
+                <button class="btn btn-secondary">編集</button>
+            </div>
+        </div>
+
+        <!-- 店舗情報セクション -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">店舗情報</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>店舗ID</th>
+                            <th>店舗名</th>
+                            <th>住所</th>
+                            <th>編集</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>店舗A</td>
+                            <td>東京都...</td>
+                            <td><button class="btn btn-secondary btn-sm">編集</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <a href="admin_client_list.html" class="btn btn-primary">戻る</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // client_header.html を読み込んで挿入
+        fetch('admin_header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

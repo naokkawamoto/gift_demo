@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 共通ヘッダー -->
+    <div id="header-container"></div>
+
+    <script>
+        // client_header.html を読み込んで挿入
+        fetch('client_header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+    </script>
+
+    <!-- コンテンツエリア -->
+    <div class="container">
+        <!-- タブ -->
+        <ul class="nav nav-tabs mb-4">
+            <li class="nav-item">
+                <a class="nav-link active" id="api-integration-tab" data-bs-toggle="tab" href="#api-integration">API連携</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="new-purchase-tab" data-bs-toggle="tab" href="#new-purchase">CSV新規購入</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="purchase-history-tab" data-bs-toggle="tab" href="#purchase-history">CSV購入履歴</a>
+            </li>
+        </ul>
+
+        <!-- タブの内容 -->
+        <div class="tab-content">
+            <!-- API連携セクション -->
+            <div class="tab-pane fade show active" id="api-integration">
+                <h4>API連携ページです。デジタルギフト券を自動発行できます。</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>商品名</th>
+                            <th>アクション</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tamago</td>
+                            <td><button class="btn btn-primary" onclick="toggleApiIntegration(this)">API連携</button></td>
+                        </tr>
+                        <tr>
+                            <td>Hikari</td>
+                            <td><button class="btn btn-primary" onclick="toggleApiIntegration(this)">API連携</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-3">API連携ボタンを押すとユーザー様が商品券を利用できるようになります。自動的に商品コード（ID)が割り当てられます。</p>
+            </div>
+
+            <!-- CSV購入セクション -->
+            <div class="tab-pane fade" id="new-purchase">
+                <h4>CSV商品購入ページです。デジタルギフト券を発行しCSVでダウンロードできます。</h4>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h3>① Tamago</h3>
+                        <img src="./images/tamago_gift.png" alt="Standard Gift" class="img-fluid mb-3" style="width: 30%; height: auto;">
+                        <p>金額: ¥110</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="number" class="form-control" value="1000" min="0" style="width: 80px;">
+                            <button class="btn btn-outline-secondary mx-2">-</button>
+                            <button class="btn btn-outline-secondary">+</button>
+                        </div>
+                        <p>合計金額: ¥110,000</p>
+                        <p class="text-danger">注意事項</p>
+                        <p class="text-muted small">購入後デジタルコードが発行されます。<br>
+                            デジタルコードには暗号がかかっています。<br>
+                            デジタルコードは購入履歴タブの注文詳細から確認可能です。</p>
+                        <p class="text-danger">有効期限は購入日から１年間です。</p>
+                        <button class="btn btn-primary" onclick="confirmPurchase('tamago', 110000)">購入</button>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h3>② Hikari</h3>
+                        <img src="./images/hikari_gift.png" alt="Standard Gift" class="img-fluid mb-3" style="width: 30%; height: auto;">
+                        <p>金額: ¥380</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="number" class="form-control" value="1000" min="0" style="width: 80px;">
+                            <button class="btn btn-outline-secondary mx-2">-</button>
+                            <button class="btn btn-outline-secondary">+</button>
+                        </div>
+                        <p>合計金額: ¥380,000</p>
+                        <p class="text-danger">注意事項</p>
+                        <p class="text-muted small">購入後デジタルコードが発行されます。<br>
+                            デジタルコードには暗号がかかっています。<br>
+                            デジタルコードは購入履歴タブの注文詳細から確認可能です。</p>
+                        <p class="text-danger">有効期限は購入日から１年間です。</p>
+                        <button class="btn btn-primary" onclick="confirmPurchase('hikari', 380000)">購入</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSV購入履歴セクション -->
+            <div class="tab-pane fade" id="purchase-history">
+                <h4>CSV購入履歴</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>購入日</th>
+                            <th>購入ID</th>
+                            <th>商品名</th>
+                            <th>購入数</th>
+                            <th>有効期限</th>
+                            <th>ステータス</th>
+                            <th>注文者</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024/08/20</td>
+                            <td>#0001</td>
+                            <td>tamago</td>
+                            <td>500</td>
+                            <td>2025/08/20</td>
+                            <td><span class="badge bg-warning text-dark">利用開始前</span></td>
+                            <td>Yamada Taro</td>
+                            <td><a href="client_purchase_detail.html" class="btn btn-outline-secondary">詳細</a></td>
+                        </tr>
+                        <tr>
+                            <td>2024/08/19</td>
+                            <td>#0002</td>
+                            <td>hikari</td>
+                            <td>200</td>
+                            <td>2025/08/19</td>
+                            <td><span class="badge bg-success">利用中</span></td>
+                            <td>Yamada Taro</td>
+                            <td><a href="client_purchase_detail.html" class="btn btn-outline-secondary">詳細</a></td>
+                        </tr>
+                        <tr>
+                            <td>2024/08/18</td>
+                            <td>#0003</td>
+                            <td>tamago</td>
+                            <td>300</td>
+                            <td>2025/08/18</td>
+                            <td><span class="badge bg-success">利用中</span></td>
+                            <td>Yamada Taro</td>
+                            <td><a href="client_purchase_detail.html" class="btn btn-outline-secondary">詳細</a></td>
+                        </tr>
+                        <tr>
+                            <td>2024/08/17</td>
+                            <td>#0004</td>
+                            <td>hikari</td>
+                            <td>1000</td>
+                            <td>2025/08/17</td>
+                            <td><span class="badge bg-danger">在庫なし</span></td>
+                            <td>Yamada Taro</td>
+                            <td><a href="client_purchase_detail.html" class="btn btn-outline-secondary">詳細</a></td>
+                        </tr>
+                        <tr>
+                            <td>2024/08/16</td>
+                            <td>#0005</td>
+                            <td>tamago</td>
+                            <td>1500</td>
+                            <td>2025/08/16</td>
+                            <td><span class="badge bg-danger">在庫なし</span></td>
+                            <td>Yamada Taro</td>
+                            <td><a href="client_purchase_detail.html" class="btn btn-outline-secondary">詳細</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- ページネーション -->
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- モーダルポップアップ -->
+    <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="purchaseModalLabel">購入確認</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="purchaseConfirmText"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">N</button>
+                    <button type="button" class="btn btn-primary" onclick="completePurchase()">Y</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function confirmPurchase(item, total) {
+            const itemName = item === 'tamago' ? 'Tamago Gift' : 'Hikari Gift';
+            const confirmText = `${itemName}を1000枚購入しますか ¥${total.toLocaleString()}?`;
+            document.getElementById('purchaseConfirmText').textContent = confirmText;
+            const purchaseModal = new bootstrap.Modal(document.getElementById('purchaseModal'));
+            purchaseModal.show();
+        }
+
+        function completePurchase() {
+            alert('購入が完了しました！');
+            const purchaseModal = bootstrap.Modal.getInstance(document.getElementById('purchaseModal'));
+            purchaseModal.hide();
+        }
+
+        function toggleApiIntegration(button) {
+            if (button.textContent === 'API連携') {
+                button.textContent = 'API連携解除';
+                button.classList.remove('btn-primary');
+                button.classList.add('btn-danger');
+            } else {
+                button.textContent = 'API連携';
+                button.classList.remove('btn-danger');
+                button.classList.add('btn-primary');
+            }
+        }
+    </script>
+</body>
+</html>

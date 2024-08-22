@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ギフト券管理</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/admin_style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 共通ヘッダー -->
+    <div id="header-container"></div>
+
+    <div class="container mt-4">
+        <h2>発行済みギフト券一覧</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ギフト券ID</th>
+                    <th>クライアント名</th>
+                    <th>発行日</th>
+                    <th>ステータス</th>
+                    <th>詳細</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GFT12345</td>
+                    <td>企業A</td>
+                    <td>2024年8月10日</td>
+                    <td><span class="badge bg-success">未使用</span></td>
+                    <td><a href="admin_gift_detail.html" class="btn btn-primary btn-sm">詳細</a></td>
+                </tr>
+                <tr>
+                    <td>GFT12346</td>
+                    <td>企業B</td>
+                    <td>2024年8月11日</td>
+                    <td><span class="badge bg-warning">使用済み</span></td>
+                    <td><a href="admin_gift_detail.html" class="btn btn-primary btn-sm">詳細</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // client_header.html を読み込んで挿入
+        fetch('admin_header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バーコード表示</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="./images/tamago_logo.png" alt="Tamago Logo">
+        </div>
+        <div class="card mt-4 full-height-card">
+            <div class="card-body">
+                <!-- 有効期限表示 -->
+                <p class="text-center" style="background-color: yellow; color: red; font-size: 0.9rem;">
+                    有効期限：2025/8/31 18:00まで
+                </p>
+                <p class="text-center">この画面をレジでご提示ください</p>
+                <!-- バーコード画像 -->
+                <img src="./images/eu_barcode.png" alt="Barcode" class="card-img-top mx-auto">
+                <!-- 使用するボタン -->
+                <button class="btn btn-primary d-block mx-auto mt-3" onclick="confirmUsage()">使用する</button>
+                <!-- ご利用上の注意事項 -->
+                <div class="note mt-3">
+                    <p class="small-text"><strong>ご利用の注意事項</strong></p>
+                    <p class="small-text">事前にクーポンを使用する操作を行うと無効となります。取り消しすることはできませんので、ご利用条件をよくご確認の上、必ず店員に操作してもらってください。</p>
+                    <p class="small-text">※通信状態が悪い場合、クーポンが使用できない場合があります。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ポップアップモーダル -->
+    <div class="modal fade" id="usageModal" tabindex="-1" aria-labelledby="usageModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="usageModalLabel">確認</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    必ずレジ担当者に操作してもらってください
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                    <button type="button" class="btn btn-primary" onclick="proceedToUsed()">使用</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function confirmUsage() {
+            var usageModal = new bootstrap.Modal(document.getElementById('usageModal'));
+            usageModal.show();
+        }
+
+        function proceedToUsed() {
+            window.location.href = 'eu_barcode_used.html';
+        }
+    </script>
+</body>
+</html>

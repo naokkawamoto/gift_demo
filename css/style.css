@@ -1,0 +1,64 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 20px;
+}
+
+.header img {
+    max-height: 50px;
+}
+
+.map-section {
+    width: 100%;
+    height: 200px; /* マップの高さを調整 */
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.full-height-card {
+    width: 100%;
+    height: calc(100% - 270px); /* 270pxはヘッダーとマップの高さ */
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.card-img-top {
+    width: calc(100% - 10px); /* 画像の周りに5pxの余白 */
+    margin: 5px;
+}
+
+.store-list {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.store-link {
+    display: block;
+    margin: 5px 0;
+    color: #000;
+    text-decoration: none;
+}
+
+.store-link:hover {
+    text-decoration: underline;
+}
+
+.small-text {
+    font-size: 0.8rem;
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Detail</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 共通ヘッダー -->
+    <div id="header-container"></div>
+
+    <script>
+        // client_header.html を読み込んで挿入
+        fetch('client_header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+    </script>
+
+    <!-- コンテンツエリア -->
+    <div class="container">
+        <!-- CSV購入詳細セクション -->
+        <h2>CSV購入詳細</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>購入日</th>
+                    <th>購入ID</th>
+                    <th>商品名</th>
+                    <th>購入数</th>
+                    <th>有効期限</th>
+                    <th>ステータス</th>
+                    <th>注文者</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024/08/20</td>
+                    <td>#0001</td>
+                    <td>tamago</td>
+                    <td>500</td>
+                    <td>2025/08/20</td>
+                    <td><span class="badge bg-warning text-dark">利用開始前</span></td>
+                    <td>Yamada Taro</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ボタン -->
+        <div class="mb-4">
+            <button class="btn btn-outline-primary me-2">CSVダウンロード</button>
+        </div>
+
+        <!-- 注意事項 -->
+        <p class="text-danger">注意事項</p>
+        <p>ここに注意事項が表示されます。</p>
+
+        <!-- 詳細セクション -->
+        <h2>詳細</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>購入日</th>
+                    <th>購入ID</th>
+                    <th>商品名</th>
+                    <th>商品券ID</th>
+                    <th>有効期限</th>
+                    <th>ステータス</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024/08/20</td>
+                    <td>#0001</td>
+                    <td>tamago</td>
+                    <td>123****456</td>
+                    <td>2025/08/20</td>
+                    <td><span class="badge bg-warning text-dark">利用開始前</span></td>
+                </tr>
+                <tr>
+                    <td>2024/08/20</td>
+                    <td>#0001</td>
+                    <td>tamago</td>
+                    <td>124****457</td>
+                    <td>2025/08/20</td>
+                    <td><span class="badge bg-warning text-dark">利用開始前</span></td>
+                </tr>
+                <tr>
+                    <td>2024/08/20</td>
+                    <td>#0001</td>
+                    <td>tamago</td>
+                    <td>125****458</td>
+                    <td>2025/08/20</td>
+                    <td><span class="badge bg-warning text-dark">利用開始前</span></td>
+                </tr>
+                <tr>
+                    <td>2024/08/20</td>
+                    <td>#0001</td>
+                    <td>tamago</td>
+                    <td>126****459</td>
+                    <td>2025/08/20</td>
+                    <td><span class="badge bg-warning text-dark">利用開始前</span></td>
+                </tr>
+                <tr>
+                    <td>2024/08/20</td>
+                    <td>#0001</td>
+                    <td>tamago</td>
+                    <td>127****460</td>
+                    <td>2025/08/20</td>
+                    <td><span class="badge bg-warning text-dark">利用開始前</span></td>
+                </tr>
+                <tr>
+                    <td>2024/08/20</td>
+                    <td>#0001</td>
+                    <td>tamago</td>
+                    <td>128****461</td>
+                    <td>2025/08/20</td>
+                    <td><span class="badge bg-warning text-dark">利用開始前</span></td>
+                </tr>
+                <tr>
+                    <td>2024/08/20</td>
+                    <td>#0001</td>
+                    <td>tamago</td>
+                    <td>129****462</td>
+                    <td>2025/08/20</td>
+                    <td><span class="badge bg-warning text-dark">利用開始前</span></td>
+                </tr>
+                <tr>
+                    <td>2024/08/20</td>
+                    <td>#0001</td>
+                    <td>tamago</td>
+                    <td>130****463</td>
+                    <td>2025/08/20</td>
+                    <td><span class="badge bg-warning text-dark">利用開始前</span></td>
+                </tr>
+                <tr>
+                    <td>2024/08/20</td>
+                    <td>#0001</td>
+                    <td>tamago</td>
+                    <td>131****464</td>
+                    <td>2025/08/20</td>
+                    <td><span class="badge bg-warning text-dark">利用開始前</span></td>
+                </tr>
+                <tr>
+                    <td>2024/08/20</td>
+                    <td>#0001</td>
+                    <td>tamago</td>
+                    <td>132****465</td>
+                    <td>2025/08/20</td>
+                    <td><span class="badge bg-warning text-dark">利用開始前</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ページネーション -->
+        <nav>
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

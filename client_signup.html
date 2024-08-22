@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <!-- ロゴ -->
+                    <img src="./images/tamago_logo.png" alt="Title Logo" style="height: 50px;" class="mb-4">
+                    <!-- SIGNUP テキスト -->
+                    <h2 class="mb-4">SIGNUP</h2>
+                    <form>
+                        <!-- 姓名 フィールド -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">姓</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="姓">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">名</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="名">
+                            </div>
+                        </div>
+                        <!-- カナ フィールド -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="lastNameKana" class="form-label">せい (かな)</label>
+                                <input type="text" class="form-control" id="lastNameKana" placeholder="せい">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="firstNameKana" class="form-label">めい (かな)</label>
+                                <input type="text" class="form-control" id="firstNameKana" placeholder="めい">
+                            </div>
+                        </div>
+                        <!-- 電話番号 -->
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">電話番号</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="電話番号">
+                        </div>
+                        <!-- メールアドレス -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">メールアドレス</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                        </div>
+                        <!-- パスワード -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">パスワード</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                            <div class="form-text">8文字以上の半角英数字で入力してください。</div>
+                        </div>
+                        <!-- 企業名 -->
+                        <div class="mb-3">
+                            <label for="companyName" class="form-label">企業名</label>
+                            <input type="text" class="form-control" id="companyName" placeholder="企業名">
+                        </div>
+                        <!-- 住所 -->
+                        <div class="mb-3">
+                            <label for="postalCode" class="form-label">郵便番号</label>
+                            <input type="text" class="form-control" id="postalCode" placeholder="郵便番号">
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">住所</label>
+                            <input type="text" class="form-control" id="address" placeholder="住所">
+                        </div>
+                        <!-- 登録ボタン -->
+                        <button type="submit" class="btn btn-primary w-100" onclick="window.location.href='client_temp_signup.html'; return false;">登録</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/admin_style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 共通ヘッダー -->
+    <div id="header-container"></div>
+
+    <div class="container mt-4">
+        <h2>Reports</h2>
+        <div class="list-group">
+            <a href="admin_report_usage.html" class="list-group-item list-group-item-action">
+                ギフト券利用レポート
+            </a>
+            <a href="admin_report_sales.html" class="list-group-item list-group-item-action">
+                売上レポート
+            </a>
+            <a href="admin_report_billing.html" class="list-group-item list-group-item-action">
+                請求レポート
+            </a>
+            <a href="admin_report_client.html" class="list-group-item list-group-item-action">
+                クライアントレポート
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // admin_header.html を読み込んで挿入
+        fetch('admin_header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
